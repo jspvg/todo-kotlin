@@ -25,6 +25,7 @@ sourceSets {
 repositories {
     mavenLocal()
     jcenter()
+    mavenCentral()
 }
 
 dependencies {
@@ -32,6 +33,14 @@ dependencies {
     implementation "io.ktor:ktor-server-netty:$ktor_version"
     implementation "ch.qos.logback:logback-classic:$logback_version"
     testImplementation "io.ktor:ktor-server-tests:$ktor_version"
-    // https://mvnrepository.com/artifact/io.ktor/ktor-gson
+
+    // features
     implementation group: 'io.ktor', name: 'ktor-gson', version: ktor_version
+    implementation group: 'io.ktor', name: 'ktor-auth', version: ktor_version
+    implementation group: 'io.ktor', name: 'ktor-auth-jwt', version: ktor_version
+
+    // database
+    implementation 'mysql:mysql-connector-java:8.0.25'
+    implementation 'org.ktorm:ktorm-core:3.4.1'
+    implementation 'org.ktorm:ktorm-support-mysql:3.4.1'
 }
